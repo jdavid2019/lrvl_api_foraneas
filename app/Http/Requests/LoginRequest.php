@@ -25,7 +25,8 @@ class LoginRequest extends FormRequest
     {
         return [
             'username' => 'required',
-            'password' => 'required'
+            'password' => 'required',
+            'file' => 'required|image|max:2048'
         ];
     }
 }
