@@ -34,3 +34,8 @@ Route::get('movie/joins/{id}','App\Http\Controllers\MovieController@getJoinMovie
 Route::post('movie/create','App\Http\Controllers\MovieController@createMovie');
 Route::put('movie/update/{id}','App\Http\Controllers\MovieController@updateMovie');
 Route::delete('movie/delete/{id}','App\Http\Controllers\MovieController@deleteMovie');
+
+Route::post('login/add','App\Http\Controllers\LoginController@validarApiLogin');
+
+
+

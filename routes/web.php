@@ -19,5 +19,13 @@ Route::get('/', function () {
 
 Route::get('home', 'App\Http\Controllers\HomeController@index');
 
+Route::get('login', 'App\Http\Controllers\LoginController@index');
+
+Route::post('login/valida', 'App\Http\Controllers\LoginController@validar')->name('login.val');
+
+Route::post('login/validate', 'App\Http\Controllers\LoginController@validarconRequest')->name('login.validate');
+
+
+
 
 //Route::resource('pasteles', 'App\Http\Controllers\PastelesController');
