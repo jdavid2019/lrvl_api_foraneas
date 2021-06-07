@@ -29,3 +29,7 @@ Route::post('login/validate', 'App\Http\Controllers\LoginController@validarconRe
 
 
 //Route::resource('pasteles', 'App\Http\Controllers\PastelesController');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

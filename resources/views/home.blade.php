@@ -1,21 +1,23 @@
-@extends('layouts.plantilla')
-
-@section('title','API')
+@extends('layouts.app')
 
 @section('content')
-    <h1> Estas en API</h1>
-    <table border="2">
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Description</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>{{ $moviedata['fecha'] }}</td>
-            <td></td>
-        </tr>
-        </tbody>
-    </table>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Dashboard') }}</div>
+
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    {{ __('You are logged in!') }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection

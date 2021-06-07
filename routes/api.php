@@ -37,5 +37,21 @@ Route::delete('movie/delete/{id}','App\Http\Controllers\MovieController@deleteMo
 
 Route::post('login/add','App\Http\Controllers\LoginController@validarApiLogin');
 
+// @TODO: Auth - todo este conjunto de rutas va a estar protegido por un middleware llamado jwt.auth,
+// el prefijo, es bueno poner como esta avanzando es decir v1,v2,.. y la funcion anonima, lo que
+// estará dentro seran las rutas que estarán protegidas
+
+Route::group(['middleware' => ['jwt.auth'], 'prefix' => 'v1'], function(){
+    Route::post('/auth/refresh','App\Http\Controllers\TokensController@refreshToken');
+
+});
 
 
+
+Route::group(['middleware' => [], 'prefix' => 'v1'], function(){
+    // esta ruta generará el token
+    Route::post('/auth/login','App\Http\Controllers\TokensController@login');
+    Route::post('/auth/refresh','App\Http\Controllers\TokensController@refreshToken');
+    // una ruta del expirar token
+    Route::get('/auth/logout','App\Http\Controllers\TokensController@logout');
+});
